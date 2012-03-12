@@ -1,18 +1,10 @@
-/*
- * Grunt Task File
- * ---------------
- *
- * Task: MinCSS 
- * Description: Compress down CSS files cleanly
- * Dependencies: clean-css
- *
- */
+// ============================================================================
+// TASKS
+// ============================================================================
 
 task.registerBasicTask("mincss", "Compress down CSS files cleanly.", function(data, name) {
   // Minify CSS.
   var files = file.expand(data);
-
-  // Minify CSS.
   file.write(name, task.helper('mincss', files));
 
   // Fail task if errors were logged.
@@ -34,3 +26,4 @@ task.registerHelper("mincss", function(files) {
     return cleanCSS.process(file.read(filepath));
   }).join("") : "";
 });
+
