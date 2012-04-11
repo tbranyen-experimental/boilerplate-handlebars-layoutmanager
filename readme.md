@@ -9,7 +9,7 @@ Organize your application in a logical filesystem, develop your
 Models/Collections/Views/Routers inside modules, and build knowing you have
 efficient code that will not bottleneck your users.
 
-Thanks to our [Contributors](https://github.com/tbranyen/backbone-boilerplate/contributors)!
+Thanks to our [Contributors](https://github.com/tbranyen/boilerplate-handlebars-layoutmanager/contributors)!
 
 Special Thanks to: [cowboy](http://github.com/cowboy),
 [iros](http://github.com/iros), [nimbupani](http://github.com/nimbupani),
@@ -18,14 +18,14 @@ Special Thanks to: [cowboy](http://github.com/cowboy),
 
 ## Installation ##
 
-* **[Download ZIP](https://github.com/tbranyen/backbone-boilerplate/zipball/master)**
-* **[Download TAR](https://github.com/tbranyen/backbone-boilerplate/tarball/master)**
+* **[Download ZIP](https://github.com/tbranyen/boilerplate-handlebars-layoutmanager/zipball/master)**
+* **[Download TAR](https://github.com/tbranyen/boilerplate-handlebars-layoutmanager/tarball/master)**
 
 If you would rather use git, you can simply:
 
 ``` bash
 cd myproject
-git clone https://github.com/tbranyen/backbone-boilerplate.git .
+git clone https://github.com/tbranyen/boilerplate-handlebars-layoutmanager.git .
 rm -rf .git
 ```
 
