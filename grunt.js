@@ -181,7 +181,12 @@ module.exports = function(grunt) {
       name: "config",
 
       // Do not wrap everything in an IIFE.
-      wrap: false
+      wrap: false,
+
+      // Build Handlebars runtime, instead of full version.
+      paths: {
+        handlebars: "../assets/js/libs/handlebars.runtime-1.0.0.beta"
+      }
     },
 
     // The headless QUnit testing environment is provided for "free" by Grunt.

@@ -13,7 +13,8 @@ require.config({
     // Libraries.
     jquery: "../assets/js/libs/jquery",
     lodash: "../assets/js/libs/lodash",
-    backbone: "../assets/js/libs/backbone"
+    backbone: "../assets/js/libs/backbone",
+    handlebars: "../assets/js/libs/handlebars-1.0.0.beta.6"
   },
 
   shim: {
@@ -21,6 +22,11 @@ require.config({
     backbone: {
       deps: ["lodash", "jquery"],
       exports: "Backbone"
+    },
+
+    // Handlebars has no dependencies.
+    handlebars: {
+      exports: "Handlebars"
     },
 
     // Backbone.LayoutManager depends on Backbone.

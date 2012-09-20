@@ -3,12 +3,13 @@ define([
   "jquery",
   "lodash",
   "backbone",
+  "handlebars",
 
   // Plugins.
   "plugins/backbone.layoutmanager"
 ],
 
-function($, _, Backbone) {
+function($, _, Backbone, Handlebars) {
 
   // Provide a global location to place configuration settings and module
   // creation.
@@ -31,24 +32,29 @@ function($, _, Backbone) {
     },
 
     fetch: function(path) {
-      // Initialize done for use in async-mode
       var done;
 
-      // Concatenate the file extension.
+      // Add the html extension.
       path = path + ".html";
 
-      // If cached, use the compiled template.
-      if (JST[path]) {
-        return JST[path];
-      } else {
-        // Put fetch into `async-mode`.
+      // If the template has not been loaded yet, then load.
+      if (!JST[path]) {
         done = this.async();
+        return $.ajax({ url: app.fileRoot + path }).then(function(contents) {
+          JST[path] = Handlebars.compile(contents);
+          JST[path].__compiled__ = true;
 
-        // Seek out the template asynchronously.
-        return $.ajax({ url: app.root + path }).then(function(contents) {
-          done(JST[path] = _.template(contents));
+          done(JST[path]);
         });
       }
+
+      // If the template hasn't been compiled yet, then compile.
+      if (!JST[path].__compiled__) {
+        JST[path] = Handlebars.template(JST[path]);
+        JST[path].__compiled__ = true;
+      }
+      
+      return JST[path];
     }
   });
 
