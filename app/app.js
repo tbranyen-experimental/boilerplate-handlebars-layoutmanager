@@ -40,7 +40,7 @@ function($, _, Backbone, Handlebars) {
       // If the template has not been loaded yet, then load.
       if (!JST[path]) {
         done = this.async();
-        return $.ajax({ url: app.fileRoot + path }).then(function(contents) {
+        return $.ajax({ url: app.root + path }).then(function(contents) {
           JST[path] = Handlebars.compile(contents);
           JST[path].__compiled__ = true;
 
